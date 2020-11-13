@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Login</title>
+<h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body>
+	<h1>Login</h1>
+	<h:form>
+		<h:panelGrid columns="3">
+			<p:outputLabel for="email" value="E-mail"/>
+			<p:inputText id="email" value="#{usuarioBean.usuario.login}"
+						 required="true"/>
+			<h:message for="email" styleClass="erro"/>
+			<p:outputLabel for="senha" value="Senha"/>
+			<p:password id="senha" value="#{usuarioBean.usuario.senha}"
+						 required="true"/>						 
+			<h:message for="senha" styleClass="erro"/>
+		</h:panelGrid>						
+		<p:commandButton value="Entrar" action="#{usuarioBean.autenticar}" ajax="false"/>
+		<h:outputText value="#{message}" styleClass="erro"/>		
+		<h:messages/>
+	</h:form>
+
+</h:body>
+</html>
